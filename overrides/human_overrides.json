@@ -1,0 +1,11 @@
+[
+  {
+    "run_or_case": "T3",
+    "control_id": "C-OV-1",
+    "model_finding": "met",
+    "reviewer_finding": "met",
+    "reviewer": "Iva Biscanic",
+    "date": "2026-11-17",
+    "reason": "The sentence describes an existing capability (Maria can stop LeakGuard from the console), not a plan. The draft status affects the manual takeover procedure, which is assessed under C-OV-2. Skill rule clarified; see docs/skill_revisions.md."
+  }
+]

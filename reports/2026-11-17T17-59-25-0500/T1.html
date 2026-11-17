@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>T1 evidence trace</title><style>body{max-width:75ch;margin:2rem auto;padding:0 1rem;font:1rem/1.55 system-ui}.line{white-space:pre-wrap;min-height:.5rem;overflow-wrap:anywhere}h2{margin-top:2rem}</style><main>
+<h1>T1 · send_leak_alerts</h1>
+<div class="line"></div>
+<div class="line">**Decision:** `act_alone` · `decided`</div>
+<div class="line">**Requested level:** `act_alone`</div>
+<div class="line">**Evidence file:** `E1_alerts_complete.md`</div>
+<div class="line"></div>
+<h2>Level checks</h2>
+<div class="line"></div>
+<div class="line">- `recommend` — **PASS**. All requirements passed.</div>
+<div class="line">  Default level. A person takes the action.</div>
+<div class="line">- `act_with_approval` — **PASS**. All requirements passed.</div>
+<div class="line">  A person approves each action, so identity, limited permissions, the ability to approve or stop, and a log of what happened are the minimum.</div>
+<div class="line">- `act_alone` — **PASS**. All requirements passed.</div>
+<div class="line">  Without a person in the loop, every control must be in place, and the action must be reversible or limited in impact.</div>
+<div class="line">  - `R-IRREVERSIBLE` — **PASS**. Charter: reversible=true, blast_radius=none. The action is reversible or limited in impact.</div>
+<div class="line"></div>
+<h2>C-ID-1</h2>
+<div class="line"></div>
+<div class="line">- Verified finding: `met` (model: `met`)</div>
+<div class="line">- Model reasoning: The evidence shows LeakGuard uses a dedicated service account separate from staff logins. It also states the account is not used by any staff member.</div>
+<div class="line">- Verified quotes:</div>
+<div class="line">  - “LeakGuard runs under its own service account svc-leakguard.”</div>
+<div class="line">  - “The account is not used by any staff member and has no interactive login.”</div>
+<div class="line">- Rejected quotes:</div>
+<div class="line">  - None.</div>
+<div class="line">- Human review: none.</div>
+<div class="line">- Requirement for `act_with_approval` — **PASS**. The evidence shows LeakGuard uses a dedicated service account separate from staff logins. It also states the account is not used by any staff member.</div>
+<div class="line">- Requirement for `act_alone` — **PASS**. The evidence shows LeakGuard uses a dedicated service account separate from staff logins. It also states the account is not used by any staff member.</div>
+<div class="line">- Approved crosswalk link: `L1`</div>
+<div class="line">  - Duty holder: both (utility configures the account; vendor product must support identity and access management)</div>
+<div class="line">  - EU: interpretive. US: voluntary.</div>
+<div class="line">  - Interpretation: No AI rule requires an AI agent to have its own identity. The requirement comes only from cyber rules: NIS2 access control and multi-factor authentication for the utility&#x27;s systems, NIST CSF identity management, and CRA identity and access management for the vendor&#x27;s product. None of them mentions agents, so applying them to an agent&#x27;s own credential is an interpretation. AI Act Article 15(5) is related only indirectly, because it concerns exploitation of system vulnerabilities, not credentials.</div>
+<div class="line">  - Indirect AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-15-5 · Article 15(5)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 5. High-risk AI systems shall be resilient against attempts by unauthorised third parties to alter their use, outputs or performance by exploiting system vulnerabilities.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">NIS2-21-2-I · Article 21(2)(i)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (i) human resources security, access control policies and asset management;</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">NIS2-21-2-J · Article 21(2)(j)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (j) the use of multi-factor authentication or continuous authentication solutions, secured voice, video and text communications and secured emergency communication systems within the entity, where appropriate.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">CSF-PR.AA-01 · PR.AA-01</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Identities and credentials for authorized users, services, and hardware are managed by the organization</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">CRA-ANNEXI-I-2-D · Annex I, Part I, point (2)(d)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (d) ensure protection from unauthorised access by appropriate control mechanisms, including but not limited to authentication, identity or access management systems, and report on possible unauthorised access;</div>
+<div class="line"></div>
+<div class="line"></div>
+<h2>C-ID-2</h2>
+<div class="line"></div>
+<div class="line">- Verified finding: `met` (model: `met`)</div>
+<div class="line">- Model reasoning: These sentences show the agent&#x27;s permissions are limited to specific actions and exclude plant changes. The review cadence is also explicitly stated.</div>
+<div class="line">- Verified quotes:</div>
+<div class="line">  - “The svc-leakguard account may read sensor data and send alerts to the operations channel.”</div>
+<div class="line">  - “It has no permission to change pumps, valves or any plant setting.”</div>
+<div class="line">  - “Permissions are reviewed every quarter.”</div>
+<div class="line">- Rejected quotes:</div>
+<div class="line">  - None.</div>
+<div class="line">- Human review: none.</div>
+<div class="line">- Requirement for `act_with_approval` — **PASS**. These sentences show the agent&#x27;s permissions are limited to specific actions and exclude plant changes. The review cadence is also explicitly stated.</div>
+<div class="line">- Requirement for `act_alone` — **PASS**. These sentences show the agent&#x27;s permissions are limited to specific actions and exclude plant changes. The review cadence is also explicitly stated.</div>
+<div class="line">- Approved crosswalk link: `L2`</div>
+<div class="line">  - Duty holder: utility</div>
+<div class="line">  - EU: interpretive. US: voluntary.</div>
+<div class="line">  - Interpretation: Least privilege is a standard access-control measure. Applied to an agent, its permissions should match the actions in its charter and nothing more; the charter is the reference the access register is checked against. No AI rule requires this directly.</div>
+<div class="line">  - Indirect AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-15-5 · Article 15(5)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 5. High-risk AI systems shall be resilient against attempts by unauthorised third parties to alter their use, outputs or performance by exploiting system vulnerabilities.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">NIS2-21-2-I · Article 21(2)(i)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (i) human resources security, access control policies and asset management;</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">CSF-PR.AA-05 · PR.AA-05</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties</div>
+<div class="line"></div>
+<div class="line"></div>
+<h2>C-OV-1</h2>
+<div class="line"></div>
+<div class="line">- Verified finding: `met` (model: `met`)</div>
+<div class="line">- Model reasoning: The evidence names Maria as the responsible person and states she can override or switch off alerts. That satisfies named human approval/override/stop authority.</div>
+<div class="line">- Verified quotes:</div>
+<div class="line">  - “Maria, operations lead, is responsible for LeakGuard.”</div>
+<div class="line">  - “She or the duty engineer can mute, override or switch off alerts at any time from the control-room console.”</div>
+<div class="line">- Rejected quotes:</div>
+<div class="line">  - None.</div>
+<div class="line">- Human review: none.</div>
+<div class="line">- Requirement for `act_with_approval` — **PASS**. The evidence names Maria as the responsible person and states she can override or switch off alerts. That satisfies named human approval/override/stop authority.</div>
+<div class="line">- Requirement for `act_alone` — **PASS**. The evidence names Maria as the responsible person and states she can override or switch off alerts. That satisfies named human approval/override/stop authority.</div>
+<div class="line">- Approved crosswalk link: `L3`</div>
+<div class="line">  - Duty holder: both (vendor builds the stop function; utility assigns the person)</div>
+<div class="line">  - EU: binding (AI Act from 2027-12-02, if high-risk); cyber side interpretive. US: voluntary.</div>
+<div class="line">  - Interpretation: The AI Act requires that natural persons can oversee a high-risk system and stop it, and that the deployer assigns oversight to competent people. No cyber rule mentions human oversight of AI, yet oversight is only verifiable with cyber controls: separation of duties so the agent can never approve its own action, access control so only named people can approve or stop, and a log of every approval and stop.</div>
+<div class="line">  - Direct AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-14-1 · Article 14(1)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 1. High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons during the period in which they are in use.</div>
+<div class="line"></div>
+<div class="line">  - Direct AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-14-4-E · Article 14(4)(e)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (e) to intervene in the operation of the high-risk AI system or interrupt the system through a ‘stop’ button or a similar procedure that allows the system to come to a halt in a safe state.</div>
+<div class="line"></div>
+<div class="line">  - Direct AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-26-2 · Article 26(2)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 2. Deployers shall assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support.</div>
+<div class="line"></div>
+<div class="line">  - Direct AI duty — <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf">RMF-MAP-3.5 · MAP 3.5</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Processes for human oversight are defined, assessed, and documented in accordance with organizational policies from the GOVERN function.</div>
+<div class="line"></div>
+<div class="line">  - Direct AI duty — <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf">RMF-MANAGE-2.4 · MANAGE 2.4</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Mechanisms are in place and applied, and responsibilities are assigned and understood, to supersede, disengage, or deactivate AI systems that demonstrate performance or outcomes inconsistent with intended use.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">CSF-PR.AA-05 · PR.AA-05</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">NIS2-21-2-I · Article 21(2)(i)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (i) human resources security, access control policies and asset management;</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">CSF-PR.PS-04 · PR.PS-04</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Log records are generated and made available for continuous monitoring</div>
+<div class="line"></div>
+<div class="line"></div>
+<h2>C-OV-2</h2>
+<div class="line"></div>
+<div class="line">- Verified finding: `met` (model: `met`)</div>
+<div class="line">- Model reasoning: This shows staff can take over and stop alerting immediately, which is an explicit reversal/override capability within a stated time.</div>
+<div class="line">- Verified quotes:</div>
+<div class="line">  - “A false alert has no effect on the network; staff check and dismiss it, and alert sending can be paused immediately.”</div>
+<div class="line">- Rejected quotes:</div>
+<div class="line">  - None.</div>
+<div class="line">- Human review: none.</div>
+<div class="line">- Requirement for `act_alone` — **PASS**. This shows staff can take over and stop alerting immediately, which is an explicit reversal/override capability within a stated time.</div>
+<div class="line">- Approved crosswalk link: `L4`</div>
+<div class="line">  - Duty holder: utility</div>
+<div class="line">  - EU: interpretive. US: voluntary.</div>
+<div class="line">  - Interpretation: The AI Act lets the overseer reverse an output, and NIS2 requires business continuity. For a physical action such as closing a valve, reversing the output does not undo its effect, so a manual fallback within a stated time is the practical control. To count as a security control, the fallback must work even if the agent is compromised: the stop and the manual takeover must not depend on the agent&#x27;s own account or system (see L1, L2).</div>
+<div class="line">  - Direct AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-14-4-D · Article 14(4)(d)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (d) to decide, in any particular situation, not to use the high-risk AI system or to otherwise disregard, override or reverse the output of the high-risk AI system;</div>
+<div class="line"></div>
+<div class="line">  - Direct AI duty — <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf">RMF-MANAGE-2.4 · MANAGE 2.4</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Mechanisms are in place and applied, and responsibilities are assigned and understood, to supersede, disengage, or deactivate AI systems that demonstrate performance or outcomes inconsistent with intended use.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">NIS2-21-2-C · Article 21(2)(c)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (c) business continuity, such as backup management and disaster recovery, and crisis management;</div>
+<div class="line"></div>
+<div class="line"></div>
+<h2>C-LG-1</h2>
+<div class="line"></div>
+<div class="line">- Verified finding: `met` (model: `met`)</div>
+<div class="line">- Model reasoning: This sentence directly lists automatic logging of each action and includes the required fields.</div>
+<div class="line">- Verified quotes:</div>
+<div class="line">  - “Every LeakGuard action is written to the central log with time, account, action, target and result.”</div>
+<div class="line">- Rejected quotes:</div>
+<div class="line">  - None.</div>
+<div class="line">- Human review: none.</div>
+<div class="line">- Requirement for `act_with_approval` — **PASS**. This sentence directly lists automatic logging of each action and includes the required fields.</div>
+<div class="line">- Requirement for `act_alone` — **PASS**. This sentence directly lists automatic logging of each action and includes the required fields.</div>
+<div class="line">- Approved crosswalk link: `L5`</div>
+<div class="line">  - Duty holder: vendor (builds logging into the product)</div>
+<div class="line">  - EU: binding (AI Act from 2027-12-02). US: voluntary.</div>
+<div class="line">  - Interpretation: High-risk systems must allow automatic logging of events; for an agent the relevant events are its actions, with time, identity, target and result. A log only proves what the agent did if the agent acts under its own identity (see L1).</div>
+<div class="line">  - Direct AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-12-1 · Article 12(1)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 1. High-risk AI systems shall technically allow for the automatic recording of events (logs) over the lifetime of the system.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">CSF-PR.PS-04 · PR.PS-04</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Log records are generated and made available for continuous monitoring</div>
+<div class="line"></div>
+<div class="line"></div>
+<h2>C-LG-2</h2>
+<div class="line"></div>
+<div class="line">- Verified finding: `met` (model: `met`)</div>
+<div class="line">- Model reasoning: The evidence gives a retention period longer than six months and states logs are reviewed.</div>
+<div class="line">- Verified quotes:</div>
+<div class="line">  - “Logs are kept for 12 months and reviewed weekly by the duty engineer.”</div>
+<div class="line">- Rejected quotes:</div>
+<div class="line">  - None.</div>
+<div class="line">- Human review: none.</div>
+<div class="line">- Requirement for `act_alone` — **PASS**. The evidence gives a retention period longer than six months and states logs are reviewed.</div>
+<div class="line">- Approved crosswalk link: `L6`</div>
+<div class="line">  - Duty holder: utility</div>
+<div class="line">  - EU: binding for retention (AI Act from 2027-12-02); interpretive for review. US: voluntary.</div>
+<div class="line">  - Interpretation: Deployers must keep the automatically generated logs for at least six months. Regular review is not in Article 26(6); it follows from the deployer&#x27;s monitoring duty (Article 26(5)) and the CSF&#x27;s continuous monitoring.</div>
+<div class="line">  - Direct AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-26-6 · Article 26(6)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 6. Deployers of high-risk AI systems shall keep the logs automatically generated by that high-risk AI system to the extent such logs are under their control, for a period appropriate to the intended purpose of the high-risk AI system, of at least six months, unless provided otherwise in applicable Union or national law, in particular in Union law on the protection of personal data.</div>
+<div class="line"></div>
+<div class="line">  - Indirect AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-26-5 · Article 26(5)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 5. Deployers shall monitor the operation of the high-risk AI system on the basis of the instructions for use and, where relevant, inform providers in accordance with Article 72. Where deployers have reason to consider that the use of the high-risk AI system in accordance with the instructions may result in that AI system presenting a risk within the meaning of Article 79(1), they shall, without undue delay, inform the provider or distributor and the relevant market surveillance authority, and shall suspend the use of that system. Where deployers have identified a serious incident, they shall also immediately inform first the provider, and then the importer or distributor and the relevant market surveillance authorities of that incident. If the deployer is not able to reach the provider, Article 73 shall apply mutatis mutandis. This obligation shall not cover sensitive operational data of deployers of AI systems which are law enforcement authorities.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">CSF-PR.PS-04 · PR.PS-04</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Log records are generated and made available for continuous monitoring</div>
+<div class="line"></div>
+<div class="line"></div>
+<h2>C-IR-1</h2>
+<div class="line"></div>
+<div class="line">- Verified finding: `met` (model: `met`)</div>
+<div class="line">- Model reasoning: The incident plan explicitly covers malfunction or misuse of the agent and includes the 24-hour, 72-hour, and one-month deadlines.</div>
+<div class="line">- Verified quotes:</div>
+<div class="line">  - “The plan covers malfunction or misuse of LeakGuard.”</div>
+<div class="line">  - “Significant incidents are reported to the national CSIRT with an early warning within 24 hours, a notification within 72 hours and a final report within one month.”</div>
+<div class="line">- Rejected quotes:</div>
+<div class="line">  - None.</div>
+<div class="line">- Human review: none.</div>
+<div class="line">- Requirement for `act_alone` — **PASS**. The incident plan explicitly covers malfunction or misuse of the agent and includes the 24-hour, 72-hour, and one-month deadlines.</div>
+<div class="line">- Approved crosswalk link: `L7`</div>
+<div class="line">  - Duty holder: both (utility reports under NIS2; vendor reports under CRA)</div>
+<div class="line">  - EU: binding (NIS2 now; CRA Article 14 since 2026-09-11; AI Act from 2027-12-02). US: voluntary; CIRCIA reporting rule not final: open.</div>
+<div class="line">  - Interpretation: NIS2 requires incident handling and fixed reporting deadlines for significant incidents; a wrongful valve closure that cuts supply very likely qualifies, a false leak alert does not. One agent incident can trigger the utility&#x27;s NIS2 clock and the vendor&#x27;s CRA clock at the same time, so the incident plan must cover both, including how the vendor informs the utility (see L8). The AI Act adds the deployer&#x27;s duty to monitor and inform.</div>
+<div class="line">  - Direct AI duty — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng">AIA-26-5 · Article 26(5)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 5. Deployers shall monitor the operation of the high-risk AI system on the basis of the instructions for use and, where relevant, inform providers in accordance with Article 72. Where deployers have reason to consider that the use of the high-risk AI system in accordance with the instructions may result in that AI system presenting a risk within the meaning of Article 79(1), they shall, without undue delay, inform the provider or distributor and the relevant market surveillance authority, and shall suspend the use of that system. Where deployers have identified a serious incident, they shall also immediately inform first the provider, and then the importer or distributor and the relevant market surveillance authorities of that incident. If the deployer is not able to reach the provider, Article 73 shall apply mutatis mutandis. This obligation shall not cover sensitive operational data of deployers of AI systems which are law enforcement authorities.</div>
+<div class="line"></div>
+<div class="line">  - Direct AI duty — <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf">RMF-MANAGE-4.3 · MANAGE 4.3</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Incidents and errors are communicated to relevant AI actors, including affected communities. Processes for tracking, responding to, and recovering from incidents and errors are followed and documented.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">NIS2-21-2-B · Article 21(2)(b)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (b) incident handling;</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">NIS2-23-4 · Article 23(4)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 4. Member States shall ensure that, for the purpose of notification under paragraph 1, the entities concerned submit to the CSIRT or, where applicable, the competent authority: (a) without undue delay and in any event within 24 hours of becoming aware of the significant incident, an early warning, which, where applicable, shall indicate whether the significant incident is suspected of being caused by unlawful or malicious acts or could have a cross-border impact; (b) without undue delay and in any event within 72 hours of becoming aware of the significant incident, an incident notification, which, where applicable, shall update the information referred to in point (a) and indicate an initial assessment of the significant incident, including its severity and impact, as well as, where available, the indicators of compromise; (d) a final report not later than one month after the submission of the incident notification under point (b), including the following: (i) a detailed description of the incident, including its severity and impact; (ii) the type of threat or root cause that is likely to have triggered the incident; (iii) applied and ongoing mitigation measures; (iv) where applicable, the cross-border impact of the incident;</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">CSF-RS.CO-02 · RS.CO-02</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Internal and external stakeholders are notified of incidents</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">CRA-14-2 · Article 14(2)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 2. For the purposes of the notification referred to in paragraph 1, the manufacturer shall submit: (a) an early warning notification of an actively exploited vulnerability, without undue delay and in any event within 24 hours of the manufacturer becoming aware of it, indicating, where applicable, the Member States on the territory of which the manufacturer is aware that their product with digital elements has been made available; (b) unless the relevant information has already been provided, a vulnerability notification, without undue delay and in any event within 72 hours of the manufacturer becoming aware of the actively exploited vulnerability, which shall provide general information, as available, about the product with digital elements concerned, the general nature of the exploit and of the vulnerability concerned as well as any corrective or mitigating measures taken, and corrective or mitigating measures that users can take, and which shall also indicate, where applicable, how sensitive the manufacturer considers the notified information to be; (c) unless the relevant information has already been provided, a final report, no later than 14 days after a corrective or mitigating measure is available, including at least the following: (i) a description of the vulnerability, including its severity and impact; (ii) where available, information concerning any malicious actor that has exploited or that is exploiting the vulnerability; (iii) details about the security update or other corrective measures that have been made available to remedy the vulnerability.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">CRA-14-3 · Article 14(3)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 3. A manufacturer shall notify any severe incident having an impact on the security of the product with digital elements that it becomes aware of simultaneously to the CSIRT designated as coordinator, in accordance with paragraph 7 of this Article, and to ENISA. The manufacturer shall notify that incident via the single reporting platform established pursuant to Article 16.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">CRA-14-4 · Article 14(4)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 4. For the purposes of the notification referred to in paragraph 3, the manufacturer shall submit: (a) an early warning notification of a severe incident having an impact on the security of the product with digital elements, without undue delay and in any event within 24 hours of the manufacturer becoming aware of it, including at least whether the incident is suspected of being caused by unlawful or malicious acts, which shall also indicate, where applicable, the Member States on the territory of which the manufacturer is aware that their product with digital elements has been made available; (b) unless the relevant information has already been provided, an incident notification, without undue delay and in any event within 72 hours of the manufacturer becoming aware of the incident, which shall provide general information, where available, about the nature of the incident, an initial assessment of the incident, as well as any corrective or mitigating measures taken, and corrective or mitigating measures that users can take, and which shall also indicate, where applicable, how sensitive the manufacturer considers the notified information to be; (c) unless the relevant information has already been provided, a final report, within one month after the submission of the incident notification under point (b), including at least the following: (i) a detailed description of the incident, including its severity and impact; (ii) the type of threat or root cause that is likely to have triggered the incident; (iii) applied and ongoing mitigation measures.</div>
+<div class="line"></div>
+<div class="line"></div>
+<h2>C-IR-2</h2>
+<div class="line"></div>
+<div class="line">- Verified finding: `met` (model: `met`)</div>
+<div class="line">- Model reasoning: This contract clause requires the vendor to notify the utility about incidents or vulnerabilities affecting the agent.</div>
+<div class="line">- Verified quotes:</div>
+<div class="line">  - “The vendor shall notify Lakeside Water within 24 hours of any incident or vulnerability affecting LeakGuard.”</div>
+<div class="line">- Rejected quotes:</div>
+<div class="line">  - None.</div>
+<div class="line">- Human review: none.</div>
+<div class="line">- Requirement for `act_alone` — **PASS**. This contract clause requires the vendor to notify the utility about incidents or vulnerabilities affecting the agent.</div>
+<div class="line">- Approved crosswalk link: `L8`</div>
+<div class="line">  - Duty holder: both (vendor reports and informs users; utility secures it by contract)</div>
+<div class="line">  - EU: interpretive. US: voluntary.</div>
+<div class="line">  - Interpretation: NIS2 requires supply-chain security, and NIST asks for cybersecurity requirements in supplier contracts. The CRA applies to products placed on the EU market wherever the manufacturer is based, so a US vendor that follows only NIST must still report actively exploited vulnerabilities and inform impacted users. The contract clause is how the utility puts this into practice.</div>
+<div class="line">  - Direct AI duty — <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf">RMF-GOVERN-6.1 · GOVERN 6.1</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Policies and procedures are in place that address AI risks associated with third-party entities, including risks of infringement of a third-party’s intellectual property or other rights.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">NIS2-21-2-D · Article 21(2)(d)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; (d) supply chain security, including security-related aspects concerning the relationships between each entity and its direct suppliers or service providers;</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">CSF-GV.SC-05 · GV.SC-05</a></div>
+<div class="line"></div>
+<div class="line">    &gt; Requirements to address cybersecurity risks in supply chains are established, prioritized, and integrated into contracts and other types of agreements with suppliers and other relevant third parties</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">CRA-14-1 · Article 14(1)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 1. A manufacturer shall notify any actively exploited vulnerability contained in the product with digital elements that it becomes aware of simultaneously to the CSIRT designated as coordinator, in accordance with paragraph 7 of this Article, and to ENISA. The manufacturer shall notify that actively exploited vulnerability via the single reporting platform established pursuant to Article 16.</div>
+<div class="line"></div>
+<div class="line">  - Cyber control — <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">CRA-14-8 · Article 14(8)</a></div>
+<div class="line"></div>
+<div class="line">    &gt; 8. After becoming aware of an actively exploited vulnerability or a severe incident having an impact on the security of the product with digital elements, the manufacturer shall inform the impacted users of the product with digital elements, and where appropriate all users, of that vulnerability or incident and, where necessary, of any risk mitigation and corrective measures that the users can deploy to mitigate the impact of that vulnerability or incident, where appropriate in a structured, machine-readable format that is easily automatically processable. Where the manufacturer fails to inform the users of the product with digital elements in a timely manner, the notified CSIRTs designated as coordinators may provide such information to the users when considered to be proportionate and necessary for preventing or mitigating the impact of that vulnerability or incident.</div>
+<div class="line"></div>
+<div class="line"></div>
+<h2>Run details</h2>
+<div class="line"></div>
+<div class="line">- Injection flags:</div>
+<div class="line">  - None.</div>
+<div class="line">- Model: `gpt-5.4-mini-2026-03-17`</div>
+<div class="line">- Tokens: 1260 input, 593 output, 1853 total</div>
+<div class="line">- Elapsed time through decision: 4 seconds</div>
+</main></html>

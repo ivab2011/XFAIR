@@ -47,6 +47,7 @@ def verify_quotes(model_check: dict, evidence: str) -> dict:
             verification_note = f"{original} requires at least {required_quotes} distinct verified quote(s)."
         verified_findings.append({
             "control_id": control_id,
+            "model_finding": original,
             "finding": result,
             "quotes": quotes,
             "rejected_quotes": rejected_quotes,

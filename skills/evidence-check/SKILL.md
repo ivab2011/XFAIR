@@ -21,8 +21,7 @@ place. You do not decide the agent's autonomy level. Plain code does that later.
    typical practice.
 4. For each control, return exactly one finding:
    - `met`: at least one quote clearly shows the control is in place.
-   - `missing`: no quote shows it, or quotes show it is not in place, or the evidence says it is
-     planned, a draft, or not yet decided.
+   - `missing`: no quote shows it, or quotes show it is not in place, or the evidence describes it only as planned or not yet decided. A statement of an existing capability counts as evidence even if it appears in a draft document; a draft that only describes intended future practice does not.
    - `conflicting`: one quote shows the control in place and another quote contradicts it
      (for example, a policy says one thing and a log shows another). Give both quotes.
 5. Keep `reasoning` to one or two plain sentences that connect the quote to the control.

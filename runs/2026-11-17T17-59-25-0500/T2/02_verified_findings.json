@@ -1,0 +1,96 @@
+{
+  "action_id": "adjust_pump_schedules",
+  "evidence_file": "E2_pumps_partial.md",
+  "findings": [
+    {
+      "control_id": "C-ID-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "LeakGuard runs under its own service account svc-leakguard.",
+        "The account is not used by any staff member."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "These sentences show the agent uses its own service account and that staff do not use that account. That supports separation from any staff login.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-ID-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "For pump scheduling, svc-leakguard may change schedules only for pumps at the Hillside station, within the pressure limits set by staff.",
+        "It cannot change valves."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The quoted scope limits the account to specific pump-scheduling actions and excludes other actions, which shows restricted permissions. The limits are described in the access register, showing the permissions are being reviewed/controlled.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Maria, operations lead, approves pump schedule changes proposed by LeakGuard.",
+        "She can override or stop any change from the control-room console."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This names a person with authority to approve, override, and stop the agent’s actions. The procedure states this control clearly.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "A schedule change can be reverted to the previous schedule with one command."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This shows the action can be reversed. The quote also indicates a quick manual recovery path through a single command.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Every LeakGuard action is written to the central log with time, account, action, target and result."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This sentence states that every action is logged automatically and includes the required fields: time, agent identity via account, action, target, and result.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "We have not yet decided how long to keep the LeakGuard logs."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The evidence explicitly says the retention period has not yet been decided, so there is no support for six-month retention. There is also no evidence that the logs are reviewed.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-1",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [],
+      "rejected_quotes": [],
+      "model_reasoning": "The evidence does not mention any incident plan for agent malfunction or misuse, nor any NIS2 reporting deadlines. The only incident-related note says the vendor contract has no notification clause.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "The vendor contract is still being negotiated and has no clause on notifying us of incidents."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This directly shows there is no contract clause requiring vendor incident notification. The evidence also does not mention vulnerability notification.",
+      "verification_note": null
+    }
+  ],
+  "injection_flags": []
+}
