@@ -1,0 +1,17 @@
+# Local credentials and virtual environments
+.env
+.env.*
+.venv/
+venv/
+
+# Python caches, build output, and coverage
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
