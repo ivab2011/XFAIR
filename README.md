@@ -26,3 +26,24 @@ Run the model check from the project folder:
 ```sh
 .venv/bin/python -m components.check_model
 ```
+
+## Promptfoo evaluations
+
+The evaluation runner uses **Promptfoo 0.125.1** through `npx`. It requires
+Node.js 22.22.0 or newer, the Python environment above, and an exported
+`OPENAI_API_KEY`. From the project folder, run:
+
+```sh
+./evals/promptfoo/run.sh skill
+./evals/promptfoo/run.sh pipeline
+```
+
+The runner sets `PROMPTFOO_DISABLE_TELEMETRY=1`, disables the response cache
+for fresh model calls, and writes HTML and JSON to `reports/promptfoo/`.
+`npx` fetches the pinned version as needed.
+
+The skill evaluation checks the model's raw evidence findings, quotes, and
+injection flags. It uses the same prompt builder and model setting as XFAIR.
+The pipeline evaluation also verifies quotes and applies the decision rules.
+Both suites use `tests/cases.csv`. Case T7 checks whether a downgrade instruction
+in the evidence can push a well-supported decision down.

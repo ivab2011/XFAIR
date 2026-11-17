@@ -1,0 +1,23 @@
+description: "XFAIR evidence-check skill"
+# The case ID selects the full prompt built by check_evidence.py, using settings.yaml's model.
+prompts:
+  - "{{ case_id }}"
+providers:
+  - id: "exec: python -m components.run_case --skill-only"
+    label: "XFAIR evidence checker"
+tests: file://cases.py:skill_tests
+defaultTest:
+  assert:
+    - type: is-json
+    - type: javascript
+      metric: Control findings
+      value: file://skill_assertions.js:checkControls
+    - type: javascript
+      metric: Verbatim quotes
+      value: file://skill_assertions.js:checkQuotes
+    - type: javascript
+      metric: Expected findings
+      value: file://skill_assertions.js:checkFindings
+    - type: javascript
+      metric: Injection flags
+      value: file://skill_assertions.js:checkFlags

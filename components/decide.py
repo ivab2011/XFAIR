@@ -148,6 +148,16 @@ def decide(
     }
 
 
+def decide_from_config(verified: dict, *, case_id: str | None = None, run_id: str | None = None) -> dict:
+    """Load the project decision inputs and apply the shared decision logic."""
+    rules = yaml.safe_load((ROOT / "config/rules.yaml").read_text(encoding="utf-8"))
+    charter = yaml.safe_load((ROOT / "config/charter.yaml").read_text(encoding="utf-8"))
+    links = approved_crosswalk(ROOT / "crosswalk/crosswalk.csv")
+    reviews = json.loads((ROOT / "overrides/human_overrides.json").read_text(encoding="utf-8"))
+    review_ids = {identifier for identifier in (case_id, run_id) if identifier}
+    return decide(verified, rules, charter, links, reviews=reviews, review_ids=review_ids)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("verified_findings", type=Path)
@@ -155,12 +165,7 @@ def main() -> None:
     parser.add_argument("--run-id")
     args = parser.parse_args()
     verified = json.loads(args.verified_findings.read_text(encoding="utf-8"))
-    rules = yaml.safe_load((ROOT / "config/rules.yaml").read_text(encoding="utf-8"))
-    charter = yaml.safe_load((ROOT / "config/charter.yaml").read_text(encoding="utf-8"))
-    links = approved_crosswalk(ROOT / "crosswalk/crosswalk.csv")
-    reviews = json.loads((ROOT / "overrides/human_overrides.json").read_text(encoding="utf-8"))
-    review_ids = {identifier for identifier in (args.case_id, args.run_id) if identifier}
-    result = decide(verified, rules, charter, links, reviews=reviews, review_ids=review_ids)
+    result = decide_from_config(verified, case_id=args.case_id, run_id=args.run_id)
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

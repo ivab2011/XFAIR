@@ -1,0 +1,21 @@
+description: "XFAIR decision pipeline"
+prompts:
+  - "{{ case_id }}"
+providers:
+  - id: "exec: python -m components.run_case"
+    label: "XFAIR decision pipeline"
+tests: file://cases.py:pipeline_tests
+defaultTest:
+  assert:
+    - type: is-json
+    - type: javascript
+      metric: Expected decision
+      value: |
+        const decision = typeof output === 'string' ? JSON.parse(output) : output;
+        const expected = [context.vars.expected_level, context.vars.expected_status];
+        const actual = [decision.granted_level, decision.status];
+        return {
+          pass: actual.every((value, index) => value === expected[index]),
+          score: actual.every((value, index) => value === expected[index]) ? 1 : 0,
+          reason: `Expected ${expected.join(' / ')}. Got ${actual.join(' / ')}.`,
+        };
