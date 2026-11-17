@@ -1,0 +1,10 @@
+# Machine-readable list of controls. Wording matches config/themes.md.
+controls:
+  - {id: C-ID-1, theme: T1, text: "The agent has its own account or credential, separate from any staff login."}
+  - {id: C-ID-2, theme: T1, text: "The agent's permissions are limited to the actions in its charter and are reviewed."}
+  - {id: C-OV-1, theme: T2, text: "A named, trained person can approve, override or stop the agent's actions."}
+  - {id: C-OV-2, theme: T2, text: "An action can be reversed, or staff can take over manually within a stated time."}
+  - {id: C-LG-1, theme: T3, text: "Every agent action is logged automatically with time, agent identity, action, target and result."}
+  - {id: C-LG-2, theme: T3, text: "Logs are kept for at least six months and reviewed."}
+  - {id: C-IR-1, theme: T4, text: "The incident plan covers agent malfunction or misuse, including NIS2 deadlines (24 hours, 72 hours, one month)."}
+  - {id: C-IR-2, theme: T4, text: "The vendor contract requires the vendor to notify the utility of incidents and vulnerabilities affecting the agent."}

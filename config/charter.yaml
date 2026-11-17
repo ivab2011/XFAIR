@@ -1,0 +1,44 @@
+# Agent charter: what the operator wants the agent to do.
+# DRAFT prepared with Claude for Iva Biscanic's review. Fictional use case, not a real utility.
+
+operator:
+  name: Lakeside Water (fictional)
+  sector: drinking water supply
+  jurisdiction: EU (Croatia)            # NIS2 applies through Croatian law; EU AI Act applies
+  size: small utility, operations team of five
+  approver: Maria, operations lead       # the named person who approves agent actions
+
+agent:
+  name: LeakGuard (fictional)
+  vendor: US-based vendor (fictional)    # vendor follows NIST frameworks
+  purpose: watch network sensors, detect leaks and act on them
+  eu_ai_act_note: >
+    Likely a high-risk AI system under Annex III point 2 (safety component in the
+    supply of water). To be confirmed in the crosswalk.
+
+actions:
+  - id: send_leak_alerts
+    description: Send an alert to the operations team when sensors indicate a leak.
+    wanted_autonomy: act_alone
+    reversible: true
+    blast_radius: none                   # none | single_asset | single_site | many_customers
+    consequence_if_wrong: a false alarm that staff check and dismiss
+
+  - id: adjust_pump_schedules
+    description: Change pump schedules to save energy within limits set by staff.
+    wanted_autonomy: act_alone
+    reversible: true
+    blast_radius: single_site
+    consequence_if_wrong: higher energy cost or lower pressure at one site until corrected
+
+  - id: close_valves
+    description: Close network valves to isolate a detected leak.
+    wanted_autonomy: act_alone           # Maria wants a fast response in emergencies
+    reversible: false                    # reopening is possible, but the service interruption has already happened
+    blast_radius: many_customers
+    consequence_if_wrong: water supply cut to many customers, possibly hospitals or schools
+
+autonomy_levels:                         # ordered from lowest to highest
+  - recommend                            # agent suggests, a person acts
+  - act_with_approval                    # agent acts after a named person approves each action
+  - act_alone                            # agent acts and reports afterwards

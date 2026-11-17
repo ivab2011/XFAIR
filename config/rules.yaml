@@ -1,0 +1,37 @@
+# Readiness rules. Plain code applies these; the language model never decides.
+# DRAFT prepared with Claude for Iva Biscanic's review.
+
+version: 0.1
+
+# Each control is found by the evidence check as one of:
+#   met          - a verified quote shows the control is in place
+#   missing      - no verified quote, or a quote that failed verification
+#   conflicting  - verified quotes contradict each other
+
+levels:
+  act_with_approval:
+    requires_met: [C-ID-1, C-ID-2, C-OV-1, C-LG-1]
+    reason: >
+      A person approves each action, so identity, limited permissions, the ability to
+      approve or stop, and a log of what happened are the minimum.
+  act_alone:
+    requires_met: [C-ID-1, C-ID-2, C-OV-1, C-OV-2, C-LG-1, C-LG-2, C-IR-1, C-IR-2]
+    also_requires:
+      - rule: R-IRREVERSIBLE
+        text: >
+          An action that cannot be undone and affects many customers never runs without
+          a person's approval, however complete the evidence.
+        condition: "reversible == true or blast_radius in [none, single_asset, single_site]"
+    reason: >
+      Without a person in the loop, every control must be in place, and the action must be
+      reversible or limited in impact.
+
+decision:
+  # 1. Any control found 'conflicting' -> status needs_human_review; level held at recommend
+  #    until a person resolves the conflict.
+  # 2. Otherwise granted = the highest level whose requirements are all met,
+  #    but never higher than the charter's wanted_autonomy.
+  # 3. If no level's requirements are met -> recommend.
+  conflicting_evidence: needs_human_review
+  cap_at_wanted_autonomy: true
+  default_level: recommend

@@ -1,0 +1,30 @@
+passage_id,framework,reference,what_to_copy,official_url
+AIA-ANNEXIII-2,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Annex III point 2,Full text of point 2 (critical infrastructure),https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+AIA-12-1,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Article 12(1),Full paragraph 1 (record-keeping),https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+AIA-14-1,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Article 14(1),Full paragraph 1 (human oversight),https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+AIA-14-4-D,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Article 14(4)(d),Point (d) only,https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+AIA-14-4-E,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Article 14(4)(e),Point (e) only,https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+AIA-15-5,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Article 15(5),First subparagraph of paragraph 5 (resilience against unauthorised third parties),https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+AIA-26-2,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Article 26(2),Full paragraph 2 (deployer assigns human oversight),https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+AIA-26-5,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Article 26(5),First subparagraph of paragraph 5 (deployer monitoring and informing),https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+AIA-26-6,"EU AI Act (Reg. 2024/1689), consolidated text as amended by Reg. 2026/1744",Article 26(6),First subparagraph of paragraph 6 (deployer keeps logs),https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng
+NIS2-21-2-B,NIS2 Directive (EU) 2022/2555,Article 21(2)(b),Point (b) only,https://eur-lex.europa.eu/eli/dir/2022/2555/oj
+NIS2-21-2-C,NIS2 Directive (EU) 2022/2555,Article 21(2)(c),Point (c) only,https://eur-lex.europa.eu/eli/dir/2022/2555/oj
+NIS2-21-2-D,NIS2 Directive (EU) 2022/2555,Article 21(2)(d),Point (d) only,https://eur-lex.europa.eu/eli/dir/2022/2555/oj
+NIS2-21-2-I,NIS2 Directive (EU) 2022/2555,Article 21(2)(i),Point (i) only,https://eur-lex.europa.eu/eli/dir/2022/2555/oj
+NIS2-21-2-J,NIS2 Directive (EU) 2022/2555,Article 21(2)(j),Point (j) only,https://eur-lex.europa.eu/eli/dir/2022/2555/oj
+NIS2-23-4,NIS2 Directive (EU) 2022/2555,Article 23(4),"Opening words of paragraph 4 and points (a), (b) and (d)",https://eur-lex.europa.eu/eli/dir/2022/2555/oj
+CSF-PR.AA-01,NIST CSF 2.0 (CSWP 29),PR.AA-01,Subcategory text,https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
+CSF-PR.AA-05,NIST CSF 2.0 (CSWP 29),PR.AA-05,Subcategory text,https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
+CSF-PR.PS-04,NIST CSF 2.0 (CSWP 29),PR.PS-04,Subcategory text,https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
+CSF-RS.CO-02,NIST CSF 2.0 (CSWP 29),RS.CO-02,Subcategory text,https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
+CSF-GV.SC-05,NIST CSF 2.0 (CSWP 29),GV.SC-05,Subcategory text,https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
+RMF-MAP-3.5,NIST AI RMF 1.0 (AI 100-1),MAP 3.5,Subcategory text,https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
+RMF-MANAGE-2.4,NIST AI RMF 1.0 (AI 100-1),MANAGE 2.4,Subcategory text,https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
+RMF-MANAGE-4.3,NIST AI RMF 1.0 (AI 100-1),MANAGE 4.3,Subcategory text,https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
+RMF-GOVERN-6.1,NIST AI RMF 1.0 (AI 100-1),GOVERN 6.1,Subcategory text,https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
+OMN-HR-DATES,Digital Omnibus on AI (Reg. 2026/1744),Provision amending Article 113 (application dates of Chapter III),The sentence setting 2 December 2027 for Annex III high-risk systems,https://eur-lex.europa.eu/eli/reg/2026/1744/oj
+CRA-14-1,Cyber Resilience Act (Reg. 2024/2847),Article 14(1),First subparagraph of paragraph 1 (manufacturer reports actively exploited vulnerabilities),https://eur-lex.europa.eu/eli/reg/2024/2847/oj
+CRA-14-8,Cyber Resilience Act (Reg. 2024/2847),Article 14(8),First subparagraph of paragraph 8 (manufacturer informs impacted users),https://eur-lex.europa.eu/eli/reg/2024/2847/oj
+CRA-ANNEXI-I-2-D,Cyber Resilience Act (Reg. 2024/2847),"Annex I, Part I, point (2)(d)","Point (d) only (protection from unauthorised access, identity and access management)",https://eur-lex.europa.eu/eli/reg/2024/2847/oj
+CRA-71-2,Cyber Resilience Act (Reg. 2024/2847),Article 71(2),"Paragraph 2 (application dates, including Article 14 from 11 September 2026)",https://eur-lex.europa.eu/eli/reg/2024/2847/oj
