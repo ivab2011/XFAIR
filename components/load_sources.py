@@ -8,7 +8,11 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PASSAGE_FIELDS = ("ai_duty_passages", "cyber_control_passages")
+PASSAGE_FIELDS = (
+    "ai_duty_passages",
+    "ai_duty_indirect_passages",
+    "cyber_control_passages",
+)
 # Match passage IDs in prose without treating control IDs such as C-OV-1 as passages.
 PASSAGE_ID = re.compile(r"\b(?:AIA|NIS2|CSF|RMF|OMN|CRA)-[A-Z0-9]+(?:[.-][A-Z0-9]+)*\b")
 

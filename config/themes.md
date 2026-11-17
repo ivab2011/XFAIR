@@ -1,6 +1,6 @@
 # Control themes (XFAIR midpoint scope)
 
-DRAFT prepared with Claude for Iva Biscanic's review. Iva's expert sign-off: [ ] approved on ____
+DRAFT prepared with Claude for Iva Biscanic's review. Iva's expert sign-off: [x] approved on 2026-11-17 (crosswalk review)
 
 XFAIR checks an AI agent against four control themes. Each theme pairs an AI duty
 (what the AI rules ask) with the cyber controls that prove it (how security frameworks
@@ -23,7 +23,7 @@ cannot be switched off on its own, and turns one stolen password into control of
 
 A named person can step in, and the effect of an action can be undone or replaced by manual operation.
 
-- **C-OV-1 Approve, override or stop.** A named, trained person can approve, override or stop the
+- **C-OV-1 Approve, override or stop.** A named person can approve, override or stop the
   agent's actions.
 - **C-OV-2 Undo or manual fallback.** An action can be reversed, or staff can take over manually
   within a stated time.
