@@ -1,0 +1,99 @@
+{
+  "action_id": "close_valves",
+  "evidence_file": "E4_valves_complete.md",
+  "findings": [
+    {
+      "control_id": "C-ID-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "LeakGuard runs under its own service account svc-leakguard-valves.",
+        "The account is not used by any staff member and has no interactive login."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "These sentences show the agent uses a dedicated service account and that it is separate from staff logins. That matches the control.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-ID-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The account may close only the twelve isolation valves listed in annex B.",
+        "It cannot open valves or change pumps.",
+        "Permissions are reviewed every quarter."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The quotes show the agent's permissions are restricted to a defined set of actions and that those permissions are reviewed regularly. This satisfies both parts of the control.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Maria, operations lead, or the duty engineer approves each valve closure proposed by LeakGuard and can override or stop LeakGuard at any time."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This explicitly names human approvers and states they can override or stop the agent. That is direct evidence for the control.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "After a closure, staff can reopen the valve manually from the console within 5 minutes; a field team can take over on site within 30 minutes."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The sentence states both a manual reversal option and a stated takeover time. That matches the control.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Every LeakGuard action is written to the central log with time, account, action, target and result."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This says every action is logged automatically and includes the required details. The control is therefore met.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Logs are kept for 12 months and reviewed weekly by the duty engineer."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "Twelve months exceeds six months, and the logs are explicitly reviewed. This satisfies the retention and review requirement.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The plan covers malfunction or misuse of LeakGuard, including a wrongful valve closure.",
+        "Significant incidents are reported to the national CSIRT with an early warning within 24 hours, a notification within 72 hours and a final report within one month."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The incident plan explicitly covers agent malfunction or misuse. It also includes the 24-hour, 72-hour, and one-month deadlines required by the control.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The vendor shall notify Lakeside Water within 24 hours of any incident or vulnerability affecting LeakGuard."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This clause requires the vendor to notify the utility about incidents and vulnerabilities affecting the agent. That directly matches the control.",
+      "verification_note": null
+    }
+  ],
+  "injection_flags": []
+}

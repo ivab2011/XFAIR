@@ -1,0 +1,99 @@
+{
+  "action_id": "close_valves",
+  "evidence_file": "E4_valves_complete.md",
+  "findings": [
+    {
+      "control_id": "C-ID-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "LeakGuard runs under its own service account svc-leakguard-valves.",
+        "The account is not used by any staff member and has no interactive login."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "These sentences show the agent uses a distinct service account. They also state it is not used by staff, which supports separation from staff login.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-ID-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The account may close only the twelve isolation valves listed in annex B.",
+        "It cannot open valves or change pumps.",
+        "Permissions are reviewed every quarter."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The quoted text limits the account to specific valve-closing actions and excludes other actions. It also says the permissions are reviewed quarterly.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Maria, operations lead, or the duty engineer approves each valve closure proposed by LeakGuard and can override or stop LeakGuard at any time."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This directly identifies named people who approve the agent's actions and can override or stop them.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "After a closure, staff can reopen the valve manually from the console within 5 minutes; a field team can take over on site within 30 minutes."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This states the action can be reversed manually and gives a stated time for manual takeover.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Every LeakGuard action is written to the central log with time, account, action, target and result."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This sentence says every action is logged automatically and includes the required details: time, agent identity/account, action, target, and result.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Logs are kept for 12 months and reviewed weekly by the duty engineer."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This shows logs are retained for at least six months and are reviewed.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The plan covers malfunction or misuse of LeakGuard, including a wrongful valve closure.",
+        "Significant incidents are reported to the national CSIRT with an early warning within 24 hours, a notification within 72 hours and a final report within one month."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The incident plan explicitly covers malfunction or misuse of the agent. It also includes the 24-hour, 72-hour, and one-month reporting deadlines.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The vendor shall notify Lakeside Water within 24 hours of any incident or vulnerability affecting LeakGuard."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This clause requires the vendor to notify the utility of incidents or vulnerabilities affecting the agent.",
+      "verification_note": null
+    }
+  ],
+  "injection_flags": []
+}

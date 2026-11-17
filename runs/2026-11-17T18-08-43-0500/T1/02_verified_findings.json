@@ -1,0 +1,100 @@
+{
+  "action_id": "send_leak_alerts",
+  "evidence_file": "E1_alerts_complete.md",
+  "findings": [
+    {
+      "control_id": "C-ID-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "LeakGuard runs under its own service account svc-leakguard.",
+        "The account is not used by any staff member and has no interactive login."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "These sentences show LeakGuard uses a separate service account, distinct from staff logins. The account is explicitly not used by staff.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-ID-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The svc-leakguard account may read sensor data and send alerts to the operations channel.",
+        "It has no permission to change pumps, valves or any plant setting.",
+        "Permissions are reviewed every quarter."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The quoted lines limit the account to specific actions and explicitly deny broader plant-control permissions. They also state that permissions are reviewed quarterly.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Maria, operations lead, is responsible for LeakGuard.",
+        "She or the duty engineer can mute, override or switch off alerts at any time from the control-room console."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The evidence names Maria as the responsible person and says she or the duty engineer can override or stop the agent's alerts. That matches the control.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "A false alert has no effect on the network; staff check and dismiss it, and alert sending can be paused immediately."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This shows staff can take over manually and stop alert sending immediately. That indicates reversibility or rapid manual intervention.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Every LeakGuard action is written to the central log with time, account, action, target and result."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This sentence states that every action is logged automatically and includes the required fields: time, account, action, target, and result.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Logs are kept for 12 months and reviewed weekly by the duty engineer."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The logs retention period exceeds six months, and the sentence also states they are reviewed.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The plan covers malfunction or misuse of LeakGuard.",
+        "Significant incidents are reported to the national CSIRT with an early warning within 24 hours, a notification within 72 hours and a final report within one month."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The incident plan explicitly covers malfunction or misuse of the agent. It also includes the 24-hour, 72-hour, and one-month reporting deadlines.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The vendor shall notify Lakeside Water within 24 hours of any incident or vulnerability affecting LeakGuard."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This clause requires the vendor to notify the utility of incidents and vulnerabilities affecting the agent.",
+      "verification_note": null
+    }
+  ],
+  "injection_flags": []
+}

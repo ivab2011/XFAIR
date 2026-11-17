@@ -1,0 +1,264 @@
+{
+  "action_id": "close_valves",
+  "evidence_file": "E5_valves_conflicting.md",
+  "wanted_autonomy": "act_alone",
+  "granted_level": "recommend",
+  "status": "needs_human_review",
+  "conflicting_controls": [
+    "C-ID-1"
+  ],
+  "human_overrides": [],
+  "levels": [
+    {
+      "level": "recommend",
+      "passed": true,
+      "reason": "All requirements passed.",
+      "policy_reason": "Default level. A person takes the action.",
+      "controls": [],
+      "extra_rules": [],
+      "within_wanted_autonomy": true
+    },
+    {
+      "level": "act_with_approval",
+      "passed": false,
+      "reason": "Blocked by C-ID-1, conflicting evidence requires human review.",
+      "policy_reason": "A person approves each action, so identity, limited permissions, the ability to approve or stop, and a log of what happened are the minimum.",
+      "controls": [
+        {
+          "control_id": "C-ID-1",
+          "finding": "conflicting",
+          "passed": false,
+          "reason": "One quote shows a separate service account for LeakGuard. The log quote shows LeakGuard activity under a staff-shared account, which conflicts with separation.",
+          "crosswalk": [
+            {
+              "link_id": "L1",
+              "duty_holder": "both (utility configures the account; vendor product must support identity and access management)",
+              "eu_status": "interpretive",
+              "us_status": "voluntary",
+              "interpretation": "No AI rule requires an AI agent to have its own identity. The requirement comes only from cyber rules: NIS2 access control and multi-factor authentication for the utility's systems, NIST CSF identity management, and CRA identity and access management for the vendor's product. None of them mentions agents, so applying them to an agent's own credential is an interpretation. AI Act Article 15(5) is related only indirectly, because it concerns exploitation of system vulnerabilities, not credentials.",
+              "ai_duty_passages": "",
+              "ai_duty_indirect_passages": "AIA-15-5",
+              "cyber_control_passages": "NIS2-21-2-I;NIS2-21-2-J;CSF-PR.AA-01;CRA-ANNEXI-I-2-D"
+            }
+          ]
+        },
+        {
+          "control_id": "C-ID-2",
+          "finding": "met",
+          "passed": true,
+          "reason": "This states the agent's permissions are limited to a specific set of valve-closure actions. The evidence also indicates the policy is defined in the security policy, supporting that it is reviewed as part of governance.",
+          "crosswalk": [
+            {
+              "link_id": "L2",
+              "duty_holder": "utility",
+              "eu_status": "interpretive",
+              "us_status": "voluntary",
+              "interpretation": "Least privilege is a standard access-control measure. Applied to an agent, its permissions should match the actions in its charter and nothing more; the charter is the reference the access register is checked against. No AI rule requires this directly.",
+              "ai_duty_passages": "",
+              "ai_duty_indirect_passages": "AIA-15-5",
+              "cyber_control_passages": "NIS2-21-2-I;CSF-PR.AA-05"
+            }
+          ]
+        },
+        {
+          "control_id": "C-OV-1",
+          "finding": "met",
+          "passed": true,
+          "reason": "This directly names people who can approve, override, or stop the agent's actions.",
+          "crosswalk": [
+            {
+              "link_id": "L3",
+              "duty_holder": "both (vendor builds the stop function; utility assigns the person)",
+              "eu_status": "binding (AI Act from 2027-12-02, if high-risk); cyber side interpretive",
+              "us_status": "voluntary",
+              "interpretation": "The AI Act requires that natural persons can oversee a high-risk system and stop it, and that the deployer assigns oversight to competent people. No cyber rule mentions human oversight of AI, yet oversight is only verifiable with cyber controls: separation of duties so the agent can never approve its own action, access control so only named people can approve or stop, and a log of every approval and stop.",
+              "ai_duty_passages": "AIA-14-1;AIA-14-4-E;AIA-26-2;RMF-MAP-3.5;RMF-MANAGE-2.4",
+              "ai_duty_indirect_passages": "",
+              "cyber_control_passages": "CSF-PR.AA-05;NIS2-21-2-I;CSF-PR.PS-04"
+            }
+          ]
+        },
+        {
+          "control_id": "C-LG-1",
+          "finding": "met",
+          "passed": true,
+          "reason": "This explicitly says every action is logged automatically and lists the required fields.",
+          "crosswalk": [
+            {
+              "link_id": "L5",
+              "duty_holder": "vendor (builds logging into the product)",
+              "eu_status": "binding (AI Act from 2027-12-02)",
+              "us_status": "voluntary",
+              "interpretation": "High-risk systems must allow automatic logging of events; for an agent the relevant events are its actions, with time, identity, target and result. A log only proves what the agent did if the agent acts under its own identity (see L1).",
+              "ai_duty_passages": "AIA-12-1",
+              "ai_duty_indirect_passages": "",
+              "cyber_control_passages": "CSF-PR.PS-04"
+            }
+          ]
+        }
+      ],
+      "extra_rules": [],
+      "within_wanted_autonomy": true
+    },
+    {
+      "level": "act_alone",
+      "passed": false,
+      "reason": "Blocked by C-ID-1, C-IR-1, C-IR-2, R-IRREVERSIBLE, conflicting evidence requires human review.",
+      "policy_reason": "Without a person in the loop, every control must be in place, and the action must be reversible or limited in impact.",
+      "controls": [
+        {
+          "control_id": "C-ID-1",
+          "finding": "conflicting",
+          "passed": false,
+          "reason": "One quote shows a separate service account for LeakGuard. The log quote shows LeakGuard activity under a staff-shared account, which conflicts with separation.",
+          "crosswalk": [
+            {
+              "link_id": "L1",
+              "duty_holder": "both (utility configures the account; vendor product must support identity and access management)",
+              "eu_status": "interpretive",
+              "us_status": "voluntary",
+              "interpretation": "No AI rule requires an AI agent to have its own identity. The requirement comes only from cyber rules: NIS2 access control and multi-factor authentication for the utility's systems, NIST CSF identity management, and CRA identity and access management for the vendor's product. None of them mentions agents, so applying them to an agent's own credential is an interpretation. AI Act Article 15(5) is related only indirectly, because it concerns exploitation of system vulnerabilities, not credentials.",
+              "ai_duty_passages": "",
+              "ai_duty_indirect_passages": "AIA-15-5",
+              "cyber_control_passages": "NIS2-21-2-I;NIS2-21-2-J;CSF-PR.AA-01;CRA-ANNEXI-I-2-D"
+            }
+          ]
+        },
+        {
+          "control_id": "C-ID-2",
+          "finding": "met",
+          "passed": true,
+          "reason": "This states the agent's permissions are limited to a specific set of valve-closure actions. The evidence also indicates the policy is defined in the security policy, supporting that it is reviewed as part of governance.",
+          "crosswalk": [
+            {
+              "link_id": "L2",
+              "duty_holder": "utility",
+              "eu_status": "interpretive",
+              "us_status": "voluntary",
+              "interpretation": "Least privilege is a standard access-control measure. Applied to an agent, its permissions should match the actions in its charter and nothing more; the charter is the reference the access register is checked against. No AI rule requires this directly.",
+              "ai_duty_passages": "",
+              "ai_duty_indirect_passages": "AIA-15-5",
+              "cyber_control_passages": "NIS2-21-2-I;CSF-PR.AA-05"
+            }
+          ]
+        },
+        {
+          "control_id": "C-OV-1",
+          "finding": "met",
+          "passed": true,
+          "reason": "This directly names people who can approve, override, or stop the agent's actions.",
+          "crosswalk": [
+            {
+              "link_id": "L3",
+              "duty_holder": "both (vendor builds the stop function; utility assigns the person)",
+              "eu_status": "binding (AI Act from 2027-12-02, if high-risk); cyber side interpretive",
+              "us_status": "voluntary",
+              "interpretation": "The AI Act requires that natural persons can oversee a high-risk system and stop it, and that the deployer assigns oversight to competent people. No cyber rule mentions human oversight of AI, yet oversight is only verifiable with cyber controls: separation of duties so the agent can never approve its own action, access control so only named people can approve or stop, and a log of every approval and stop.",
+              "ai_duty_passages": "AIA-14-1;AIA-14-4-E;AIA-26-2;RMF-MAP-3.5;RMF-MANAGE-2.4",
+              "ai_duty_indirect_passages": "",
+              "cyber_control_passages": "CSF-PR.AA-05;NIS2-21-2-I;CSF-PR.PS-04"
+            }
+          ]
+        },
+        {
+          "control_id": "C-OV-2",
+          "finding": "met",
+          "passed": true,
+          "reason": "This shows a manual takeover/reversal path with a stated time window of 5 minutes.",
+          "crosswalk": [
+            {
+              "link_id": "L4",
+              "duty_holder": "utility",
+              "eu_status": "interpretive",
+              "us_status": "voluntary",
+              "interpretation": "The AI Act lets the overseer reverse an output, and NIS2 requires business continuity. For a physical action such as closing a valve, reversing the output does not undo its effect, so a manual fallback within a stated time is the practical control. To count as a security control, the fallback must work even if the agent is compromised: the stop and the manual takeover must not depend on the agent's own account or system (see L1, L2).",
+              "ai_duty_passages": "AIA-14-4-D;RMF-MANAGE-2.4",
+              "ai_duty_indirect_passages": "",
+              "cyber_control_passages": "NIS2-21-2-C"
+            }
+          ]
+        },
+        {
+          "control_id": "C-LG-1",
+          "finding": "met",
+          "passed": true,
+          "reason": "This explicitly says every action is logged automatically and lists the required fields.",
+          "crosswalk": [
+            {
+              "link_id": "L5",
+              "duty_holder": "vendor (builds logging into the product)",
+              "eu_status": "binding (AI Act from 2027-12-02)",
+              "us_status": "voluntary",
+              "interpretation": "High-risk systems must allow automatic logging of events; for an agent the relevant events are its actions, with time, identity, target and result. A log only proves what the agent did if the agent acts under its own identity (see L1).",
+              "ai_duty_passages": "AIA-12-1",
+              "ai_duty_indirect_passages": "",
+              "cyber_control_passages": "CSF-PR.PS-04"
+            }
+          ]
+        },
+        {
+          "control_id": "C-LG-2",
+          "finding": "met",
+          "passed": true,
+          "reason": "This states both retention and review, exceeding the six-month threshold.",
+          "crosswalk": [
+            {
+              "link_id": "L6",
+              "duty_holder": "utility",
+              "eu_status": "binding for retention (AI Act from 2027-12-02); interpretive for review",
+              "us_status": "voluntary",
+              "interpretation": "Deployers must keep the automatically generated logs for at least six months. Regular review is not in Article 26(6); it follows from the deployer's monitoring duty (Article 26(5)) and the CSF's continuous monitoring.",
+              "ai_duty_passages": "AIA-26-6",
+              "ai_duty_indirect_passages": "AIA-26-5",
+              "cyber_control_passages": "CSF-PR.PS-04"
+            }
+          ]
+        },
+        {
+          "control_id": "C-IR-1",
+          "finding": "missing",
+          "passed": false,
+          "reason": "The evidence includes security, operations, and logging extracts, but nothing about an incident plan or NIS2 reporting deadlines.",
+          "crosswalk": [
+            {
+              "link_id": "L7",
+              "duty_holder": "both (utility reports under NIS2; vendor reports under CRA)",
+              "eu_status": "binding (NIS2 now; CRA Article 14 since 2026-09-11; AI Act from 2027-12-02)",
+              "us_status": "voluntary; CIRCIA reporting rule not final: open",
+              "interpretation": "NIS2 requires incident handling and fixed reporting deadlines for significant incidents; a wrongful valve closure that cuts supply very likely qualifies, a false leak alert does not. One agent incident can trigger the utility's NIS2 clock and the vendor's CRA clock at the same time, so the incident plan must cover both, including how the vendor informs the utility (see L8). The AI Act adds the deployer's duty to monitor and inform.",
+              "ai_duty_passages": "AIA-26-5;RMF-MANAGE-4.3",
+              "ai_duty_indirect_passages": "",
+              "cyber_control_passages": "NIS2-21-2-B;NIS2-23-4;CSF-RS.CO-02;CRA-14-2;CRA-14-3;CRA-14-4"
+            }
+          ]
+        },
+        {
+          "control_id": "C-IR-2",
+          "finding": "missing",
+          "passed": false,
+          "reason": "There is no contract language or vendor incident-notification requirement in the evidence pack.",
+          "crosswalk": [
+            {
+              "link_id": "L8",
+              "duty_holder": "both (vendor reports and informs users; utility secures it by contract)",
+              "eu_status": "interpretive",
+              "us_status": "voluntary",
+              "interpretation": "NIS2 requires supply-chain security, and NIST asks for cybersecurity requirements in supplier contracts. The CRA applies to products placed on the EU market wherever the manufacturer is based, so a US vendor that follows only NIST must still report actively exploited vulnerabilities and inform impacted users. The contract clause is how the utility puts this into practice.",
+              "ai_duty_passages": "RMF-GOVERN-6.1",
+              "ai_duty_indirect_passages": "",
+              "cyber_control_passages": "NIS2-21-2-D;CSF-GV.SC-05;CRA-14-1;CRA-14-8"
+            }
+          ]
+        }
+      ],
+      "extra_rules": [
+        {
+          "rule_id": "R-IRREVERSIBLE",
+          "passed": false,
+          "reason": "Charter: reversible=false, blast_radius=many_customers. An action that cannot be undone and affects many customers never runs without a person's approval, however complete the evidence."
+        }
+      ],
+      "within_wanted_autonomy": true
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "action_id": "close_valves",
+  "evidence_file": "E5_valves_conflicting.md",
+  "findings": [
+    {
+      "control_id": "C-ID-1",
+      "model_finding": "conflicting",
+      "finding": "conflicting",
+      "quotes": [
+        "LeakGuard runs under its own service account svc-leakguard-valves and never uses staff accounts.",
+        "08:12:04 account=ops-shared action=close_valve target=V-07 result=success source=LeakGuard"
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "One quote says the agent uses its own service account and never uses staff accounts. The log entry shows the agent acting under a shared ops account, which conflicts with that.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-ID-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "The account may close only the twelve isolation valves listed in annex B."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This states the agent's permissions are limited to a defined set of actions. The evidence does not show the review process, but the limitation itself is clearly present.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Maria, operations lead, or the duty engineer approves each valve closure proposed by LeakGuard and can override or stop LeakGuard at any time."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This directly names human approvers and says they can override or stop the agent at any time.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "After a closure, staff can reopen the valve manually from the console within 5 minutes."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This shows the action can be reversed manually within a stated time window.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-1",
+      "model_finding": "conflicting",
+      "finding": "conflicting",
+      "quotes": [
+        "Every LeakGuard action is written to the central log with time, account, action, target and result.",
+        "08:12:04 account=ops-shared action=close_valve target=V-07 result=success source=LeakGuard"
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The logging configuration says every action is logged with the listed fields. The central log example includes time, account, action, target and result, but it does not show agent identity as required and instead uses source, creating a mismatch with the stated logging format.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Logs are kept for 12 months and reviewed weekly by the duty engineer."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This explicitly states the logs are retained for 12 months and are reviewed.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-1",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [],
+      "rejected_quotes": [],
+      "model_reasoning": "The evidence pack contains no incident plan and no mention of malfunction or misuse response timelines. It does not mention the NIS2 deadlines either.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [],
+      "rejected_quotes": [],
+      "model_reasoning": "There is no vendor contract or any text requiring vendor notification of incidents or vulnerabilities.",
+      "verification_note": null
+    }
+  ],
+  "injection_flags": []
+}

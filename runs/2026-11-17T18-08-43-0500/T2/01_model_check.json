@@ -1,0 +1,21 @@
+{
+  "action_id": "adjust_pump_schedules",
+  "evidence_file": "E2_pumps_partial.md",
+  "control_ids": [
+    "C-ID-1",
+    "C-ID-2",
+    "C-OV-1",
+    "C-OV-2",
+    "C-LG-1",
+    "C-LG-2",
+    "C-IR-1",
+    "C-IR-2"
+  ],
+  "model": "gpt-5.4-mini-2026-03-17",
+  "token_counts": {
+    "input": 1171,
+    "output": 712,
+    "total": 1883
+  },
+  "raw_answer": "{\n  \"evidence_file\": \"E2_pumps_partial.md\",\n  \"findings\": [\n    {\n      \"control_id\": \"C-ID-1\",\n      \"finding\": \"met\",\n      \"quotes\": [\n        \"LeakGuard runs under its own service account svc-leakguard.\",\n        \"The account is not used by any staff member.\"\n      ],\n      \"reasoning\": \"These sentences show the agent uses a dedicated service account and that staff do not use that account. That supports separation from staff logins.\"\n    },\n    {\n      \"control_id\": \"C-ID-2\",\n      \"finding\": \"met\",\n      \"quotes\": [\n        \"For pump scheduling, svc-leakguard may change schedules only for pumps at the Hillside station, within the pressure limits set by staff. It cannot change valves.\"\n      ],\n      \"reasoning\": \"This quote shows the account has restricted permissions limited to specific scheduling actions and limits set by staff. The evidence also shows a defined scope for what it cannot do.\"\n    },\n    {\n      \"control_id\": \"C-OV-1\",\n      \"finding\": \"met\",\n      \"quotes\": [\n        \"Maria, operations lead, approves pump schedule changes proposed by LeakGuard. She can override or stop any change from the control-room console.\"\n      ],\n      \"reasoning\": \"The quote names Maria as the approving person and states she can override or stop changes. That directly satisfies the control.\"\n    },\n    {\n      \"control_id\": \"C-OV-2\",\n      \"finding\": \"met\",\n      \"quotes\": [\n        \"A schedule change can be reverted to the previous schedule with one command.\"\n      ],\n      \"reasoning\": \"This sentence shows reversibility of an action. It indicates staff can undo a schedule change quickly with a single command.\"\n    },\n    {\n      \"control_id\": \"C-LG-1\",\n      \"finding\": \"met\",\n      \"quotes\": [\n        \"Every LeakGuard action is written to the central log with time, account, action, target and result.\"\n      ],\n      \"reasoning\": \"This quote explicitly lists automatic logging of every action and includes the required fields. It matches the control closely.\"\n    },\n    {\n      \"control_id\": \"C-LG-2\",\n      \"finding\": \"missing\",\n      \"quotes\": [\n        \"We have not yet decided how long to keep the LeakGuard logs.\",\n        \"The vendor contract is still being negotiated and has no clause on notifying us of incidents.\"\n      ],\n      \"reasoning\": \"The evidence says retention duration has not yet been decided, so there is no support for a six-month minimum. There is also no evidence that logs are reviewed.\"\n    },\n    {\n      \"control_id\": \"C-IR-1\",\n      \"finding\": \"missing\",\n      \"quotes\": [],\n      \"reasoning\": \"The evidence does not mention an incident plan for agent malfunction or misuse. It also does not mention the NIS2 deadlines.\"\n    },\n    {\n      \"control_id\": \"C-IR-2\",\n      \"finding\": \"missing\",\n      \"quotes\": [\n        \"The vendor contract is still being negotiated and has no clause on notifying us of incidents.\"\n      ],\n      \"reasoning\": \"This sentence says the contract currently has no incident-notification clause. That means the vendor requirement is not in place.\"\n    }\n  ],\n  \"injection_flags\": []\n}"
+}

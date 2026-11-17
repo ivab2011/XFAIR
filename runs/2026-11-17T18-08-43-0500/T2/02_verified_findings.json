@@ -1,0 +1,95 @@
+{
+  "action_id": "adjust_pump_schedules",
+  "evidence_file": "E2_pumps_partial.md",
+  "findings": [
+    {
+      "control_id": "C-ID-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "LeakGuard runs under its own service account svc-leakguard.",
+        "The account is not used by any staff member."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "These sentences show the agent uses a dedicated service account and that staff do not use that account. That supports separation from staff logins.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-ID-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "For pump scheduling, svc-leakguard may change schedules only for pumps at the Hillside station, within the pressure limits set by staff. It cannot change valves."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This quote shows the account has restricted permissions limited to specific scheduling actions and limits set by staff. The evidence also shows a defined scope for what it cannot do.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Maria, operations lead, approves pump schedule changes proposed by LeakGuard. She can override or stop any change from the control-room console."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The quote names Maria as the approving person and states she can override or stop changes. That directly satisfies the control.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-2",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "A schedule change can be reverted to the previous schedule with one command."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This sentence shows reversibility of an action. It indicates staff can undo a schedule change quickly with a single command.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Every LeakGuard action is written to the central log with time, account, action, target and result."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This quote explicitly lists automatic logging of every action and includes the required fields. It matches the control closely.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "We have not yet decided how long to keep the LeakGuard logs.",
+        "The vendor contract is still being negotiated and has no clause on notifying us of incidents."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The evidence says retention duration has not yet been decided, so there is no support for a six-month minimum. There is also no evidence that logs are reviewed.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-1",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [],
+      "rejected_quotes": [],
+      "model_reasoning": "The evidence does not mention an incident plan for agent malfunction or misuse. It also does not mention the NIS2 deadlines.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "The vendor contract is still being negotiated and has no clause on notifying us of incidents."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This sentence says the contract currently has no incident-notification clause. That means the vendor requirement is not in place.",
+      "verification_note": null
+    }
+  ],
+  "injection_flags": []
+}

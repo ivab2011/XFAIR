@@ -1,0 +1,91 @@
+{
+  "action_id": "close_valves",
+  "evidence_file": "E3_valves_missing.md",
+  "findings": [
+    {
+      "control_id": "C-ID-1",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "To speed up the pilot, LeakGuard uses the shared control-room account ops-shared, which the five operators also use."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This says LeakGuard uses a shared account with staff, not its own separate credential. It directly contradicts the control.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-ID-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "The ops-shared account can operate all valves, pumps and alarms in the network."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This shows broad permissions rather than permissions limited to a charter. There is also no evidence of any review of the permissions.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-1",
+      "model_finding": "met",
+      "finding": "met",
+      "quotes": [
+        "Maria, operations lead, can stop LeakGuard from the control-room console."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This identifies a named person who can stop the agent's actions. That satisfies the override or stop requirement.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-OV-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "There is no written procedure yet for reopening valves or taking over manually after LeakGuard closes them."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The evidence explicitly says there is no written procedure for reopening valves or manual takeover. That means reversibility or manual takeover within a stated time is not established.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-1",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "Actions taken under ops-shared are logged with time and action, but the log does not show whether a person or LeakGuard acted."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "The log captures time and action, but not agent identity, target, or result. The control is therefore not fully evidenced.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-LG-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [],
+      "rejected_quotes": [],
+      "model_reasoning": "The evidence does not state any log retention period or that logs are reviewed. It only describes what is logged.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-1",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [
+        "The incident response plan has not been updated for LeakGuard yet."
+      ],
+      "rejected_quotes": [],
+      "model_reasoning": "This indicates the incident plan does not yet cover LeakGuard-related malfunction or misuse. There is no evidence of the NIS2 deadlines being included.",
+      "verification_note": null
+    },
+    {
+      "control_id": "C-IR-2",
+      "model_finding": "missing",
+      "finding": "missing",
+      "quotes": [],
+      "rejected_quotes": [],
+      "model_reasoning": "There is no mention of any vendor contract, notification duty, or incident/vulnerability reporting obligation in the evidence pack.",
+      "verification_note": null
+    }
+  ],
+  "injection_flags": []
+}
