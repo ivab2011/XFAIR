@@ -4,8 +4,11 @@ set -euo pipefail
 cd "$(dirname "$0")/../.."
 case "${1:-}" in
     skill|pipeline) suite=$1 ;;
-    *) printf 'Usage: %s skill|pipeline\n' "$0" >&2; exit 2 ;;
+    *) printf 'Usage: %s skill|pipeline [repeat] [version]\n' "$0" >&2; exit 2 ;;
 esac
+repeat=${2:-1}
+version=${3:-}
+output="reports/promptfoo/${suite}${version:+_${version}}"
 
 export PROMPTFOO_DISABLE_TELEMETRY=1
 export PROMPTFOO_DISABLE_UPDATE=1
@@ -15,5 +18,5 @@ export PYTHONPATH="$PWD${PYTHONPATH:+:$PYTHONPATH}"
 mkdir -p reports/promptfoo
 
 npx --yes promptfoo@0.125.1 eval --config "evals/promptfoo/${suite}_eval.yaml" \
-    --no-cache --max-concurrency 1 \
-    --output "reports/promptfoo/${suite}.html" --output "reports/promptfoo/${suite}.json"
+    --no-cache --max-concurrency 1 --repeat "$repeat" \
+    --output "$output.html" --output "$output.json"

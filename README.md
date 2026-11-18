@@ -34,12 +34,14 @@ Node.js 22.22.0 or newer, the Python environment above, and an exported
 `OPENAI_API_KEY`. From the project folder, run:
 
 ```sh
-./evals/promptfoo/run.sh skill
-./evals/promptfoo/run.sh pipeline
+./evals/promptfoo/run.sh skill 3 v2
+./evals/promptfoo/run.sh pipeline 3 v2
 ```
 
 The runner sets `PROMPTFOO_DISABLE_TELEMETRY=1`, disables the response cache
-for fresh model calls, and writes HTML and JSON to `reports/promptfoo/`.
+for fresh model calls, and writes HTML and JSON to `reports/promptfoo/`. The
+second argument is the number of repetitions. The third is the output filename
+suffix. Use a new suffix to keep previous reports.
 `npx` fetches the pinned version as needed.
 
 The skill evaluation checks the model's raw evidence findings, quotes, and

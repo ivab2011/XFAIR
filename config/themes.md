@@ -32,8 +32,8 @@ A named person can step in, and the effect of an action can be undone or replace
 
 Every action leaves a record that a person can check later.
 
-- **C-LG-1 Automatic action log.** Every agent action is logged automatically with time, agent
-  identity, action, target and result.
+- **C-LG-1 Automatic action log.** Every agent action is logged automatically with time, the
+  agent's identity (its own account counts as its identity), action, target and result.
 - **C-LG-2 Retention and review.** Logs are kept for at least six months and reviewed.
 
 ## T4 Incident detection and reporting
