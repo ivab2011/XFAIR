@@ -26,7 +26,7 @@ flowchart TD
     Decide -.-> PromptfooResult["Promptfoo · compare with the expected decision"]
 ```
 
-The model call happens in `call_model.py`. The quote verifier, decision engine, trace builder, and evaluator use ordinary code. The evaluator checks the saved decisions and independently matches kept quotes against the evidence. Promptfoo’s skill suite checks the raw model answer. Its pipeline suite calls the evidence checker, verifier, and decision engine through `run_case.py` and checks the returned decision.
+The model call happens in `call_model.py`. The model reads the evidence, quotes it and proposes a finding per control. Plain code verifies the quotes and sets the autonomy level. The trace builder and evaluator also use ordinary code. The evaluator checks the saved decisions and independently matches kept quotes against the evidence. Promptfoo’s skill suite checks the raw model answer. Its pipeline suite calls the evidence checker, verifier, and decision engine through `run_case.py` and checks the returned decision.
 
 ## T4 example · Human oversight for valve closure
 
