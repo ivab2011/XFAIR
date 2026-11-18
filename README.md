@@ -1,6 +1,19 @@
 # XFAIR
 
+Research prototype for MIT 1.125. Not legal advice. The utility, agent and people in the use case are fictional.
+
 XFAIR is an MIT 1.125 term project that checks how much independence an AI agent should have for a particular action. It reads an evidence pack, checks eight controls across four themes, and recommends one of three levels: suggest an action for a person to take, act with a person's approval, or act alone and report afterward. The report shows the evidence, the decision rules, and the official sources behind each control so a reviewer can follow the decision.
+
+## At a glance
+
+**How much autonomy does the evidence support for this agent’s proposed action?**
+
+- Seven test cases, including prompt injections that try to raise and lower autonomy.
+- All six cases in the stability study reached the same decisions across three runs.
+- Promptfoo v2 passed 20/21 in each suite. Every failure was fail-safe, with no increase in autonomy.
+- 32 passages from six official texts.
+
+[Midpoint submission](SUBMISSION.md) · [Architecture](ARCHITECTURE.md) · [Midpoint video placeholder](SUBMISSION.md#midpoint-materials)
 
 ## Maria’s use case
 
@@ -165,6 +178,13 @@ The repository contains 32 passages from six documents. These links come from [t
 - [Digital Omnibus on AI, Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj)
 - [NIST Cybersecurity Framework 2.0](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf)
 - [NIST AI Risk Management Framework 1.0](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
+
+## Limitations
+
+- The project uses synthetic evidence only.
+- One reviewer has assessed the crosswalk so far. A second independent review is planned.
+- The crosswalk reflects the project’s interpretation of the official texts.
+- The model’s findings can vary between runs. [Midpoint submission](SUBMISSION.md#technical-uncertainties-investigated)
 
 ## AI assistance
 
