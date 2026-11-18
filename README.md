@@ -80,7 +80,7 @@ The skill suite checks the evidence checker’s raw findings, quotes, and inject
 
 ## Design choices
 
-- The model finds and quotes evidence, labels each control, and flags text that tries to instruct the reviewer. Plain Python decides the autonomy level.
+- The model reads the evidence, quotes it and proposes a finding per control. Plain code verifies the quotes and sets the autonomy level.
 - The verifier checks each quote word for word against the evidence, allowing whitespace differences only. Unsupported findings lose credit when too few quotes match.
 - A human review can override a finding. The decision records the model and reviewer findings, who reviewed it, and why.
 - `components/call_model.py` is the single place that contacts OpenAI. The model name comes from `config/settings.yaml`.

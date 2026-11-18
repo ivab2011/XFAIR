@@ -20,7 +20,7 @@ Every observed evaluation failure was fail-safe in terms of autonomy. Both faile
 ## Implementation progress
 
 - The source checker verifies the crosswalk references against the local passages. The crosswalk records Iva Biscanic’s approval for all eight links.
-- The evidence checker asks `gpt-5.4-mini` for findings and direct quotes. The verifier checks the quotes against the evidence. Plain code applies the rules, the charter limit, and any matching human review.
+- The model reads the evidence, quotes it and proposes a finding per control. Plain code verifies the quotes and sets the autonomy level using the rules, the charter limit, and any matching human review.
 - The case runner saves the raw answer, checked findings, decision, and readable trace. The evaluator, the three-run stability comparison, and both Promptfoo suites are working. [Architecture](ARCHITECTURE.md)
 
 ## Findings so far
