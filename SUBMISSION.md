@@ -51,4 +51,4 @@ Every observed evaluation failure was fail-safe in terms of autonomy. Both faile
 | Promptfoo pipeline v1 | [HTML](reports/promptfoo/pipeline_v1.html) · [JSON](reports/promptfoo/pipeline_v1.json) |
 | Promptfoo skill v2 | [HTML](reports/promptfoo/skill_v2.html) · [JSON](reports/promptfoo/skill_v2.json) |
 | Promptfoo pipeline v2 | [HTML](reports/promptfoo/pipeline_v2.html) · [JSON](reports/promptfoo/pipeline_v2.json) |
-| Midpoint video | Placeholder for the video link |
+| Midpoint video | [Watch on YouTube](https://youtu.be/DWomgRgOcxQ) |

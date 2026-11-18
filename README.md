@@ -13,7 +13,7 @@ XFAIR is an MIT 1.125 term project that checks how much independence an AI agent
 - Promptfoo v2 passed 20/21 in each suite. Every failure was fail-safe, with no increase in autonomy.
 - 32 passages from six official texts.
 
-[One-page summary (PDF)](docs/XFAIR_onepager.pdf) · [Midpoint submission](SUBMISSION.md) · [Architecture](ARCHITECTURE.md) · [Midpoint video placeholder](SUBMISSION.md#midpoint-materials)
+[One-page summary (PDF)](docs/XFAIR_onepager.pdf) · [Midpoint submission](SUBMISSION.md) · [Architecture](ARCHITECTURE.md) · [Midpoint video](https://youtu.be/DWomgRgOcxQ)
 
 ## Maria’s use case
 
